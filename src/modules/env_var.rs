@@ -31,7 +31,7 @@ pub fn module<'a>(context: &'a Context) -> Option<Module<'a>> {
     Some(module)
 }
 
-fn get_env_value(name: &str, default: Option<&str>) -> Option<String> {
+pub fn get_env_value(name: &str, default: Option<&str>) -> Option<String> {
     match env::var_os(name) {
         Some(os_value) => match os_value.into_string() {
             Ok(value) => Some(value),
